@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import testbase.WebTestBase;
 import util.ActionsUtil;
+import util.DropDownUtil;
 import util.WaitUtil;
 import util.WebDriverUtil;
 
@@ -27,6 +28,9 @@ public class HomePage extends WebTestBase{
 
     @FindBy(xpath = "")
     List<WebElement> allElement;
+
+    @FindBy(id = "sort")
+    WebElement dropDownOption;
 
 
     public HomePage(){
@@ -50,5 +54,9 @@ public class HomePage extends WebTestBase{
         ActionsUtil.moveToWebElement(shopOption);
         WaitUtil.waitUntilElement(allShopOptions);
         ActionsUtil.selectRandomOptionInList(allShopOptions, option);
+    }
+
+    public void selectPopularityOption(String option){
+        DropDownUtil.selectOptionByVisibleText(dropDownOption, option);
     }
 }

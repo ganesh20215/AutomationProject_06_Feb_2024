@@ -44,6 +44,18 @@ public class HomeTest extends WebTestBase {
         softAssert.assertAll();
     }
 
+    @Test(description = "Verify drop down option from list")
+    public void verifyDropDownOptionFromList() throws InterruptedException {
+        SoftAssert softAssert = new SoftAssert();
+        homePage.closedFirstAd();
+        homePage.selectShopOption(prop.getProperty("shopOption"));
+        Thread.sleep(5000);
+        homePage.closedFirstAd();
+        homePage.selectPopularityOption("Latest");
+        Thread.sleep(5000);
+        softAssert.assertAll();
+    }
+
     @AfterMethod
     public void afterMethod() {
         driver.close();

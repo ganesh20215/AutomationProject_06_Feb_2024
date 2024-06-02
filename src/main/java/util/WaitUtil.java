@@ -10,8 +10,8 @@ import java.util.List;
 
 public class WaitUtil extends WebTestBase {
 
-    public static long PAGE_LOAD = 20;
-    public static long EXPLICIT_WAIT =20;
+    public static long PAGE_LOAD = 40;
+    public static long EXPLICIT_WAIT =40;
     public static WebDriverWait wait;
 
     public static void waitUntilElementToBeClickable(WebElement element){

@@ -2,6 +2,7 @@ package testbase;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -37,8 +38,10 @@ public class WebTestBase {
     public static void initialization() {
         String browserName = prop.getProperty("browser");
         if (browserName.equalsIgnoreCase("chrome")) {
+            ChromeOptions chromeOptions = new ChromeOptions();
+            chromeOptions.setBinary("C:\\Users\\Ganesh\\OneDrive\\Desktop\\Driver\\chrome-win64\\chrome-win64\\chrome.exe");
             System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/main/resources/browser/chromedriver.exe");
-            driver = new ChromeDriver();
+            driver = new ChromeDriver(chromeOptions);
         } else if (browserName.equalsIgnoreCase("firefox")) {
             System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "/src/main/resources/browser/geckodriver.exe");
             driver = new FirefoxDriver();
